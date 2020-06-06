@@ -21,6 +21,7 @@ import {MatRippleModule} from '@angular/material/core';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import { UserAccessComponent } from './user-access/user-access.component';
 
 const config: SocketIoConfig = {url: AppSetting.BASE_SERVER_URL, options: {}};
 
@@ -48,6 +49,7 @@ const config: SocketIoConfig = {url: AppSetting.BASE_SERVER_URL, options: {}};
     declarations: [
         AppComponent,
         AdminLayoutComponent,
+        UserAccessComponent,
         // không add các component vào đây
     ],
     schemas: [

@@ -11,6 +11,7 @@ import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import {HotelComponentComponent} from '../../hotel-component/hotel-component.component';
 import {BookingComponent} from '../../booking/booking.component';
 import {HotelAccessComponent} from '../../hotel-access/hotel-access.component';
+import {UserAccessComponent} from '../../user-access/user-access.component';
 
 // khai báo component path cho trang admin
 export const AdminLayoutRoutes: Routes = [
@@ -25,4 +26,5 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'hotels',        component: HotelComponentComponent },
     { path: 'hotel-access',        component: HotelAccessComponent },
     { path: 'bookings',        component: BookingComponent },
+    { path: 'users',        component: UserAccessComponent },
 ];
