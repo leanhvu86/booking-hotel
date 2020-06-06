@@ -12,7 +12,10 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatTooltipModule} from '@angular/material/tooltip';
 
 @NgModule({
-  declarations: [DashboardLayoutComponent],
+  declarations: [
+      DashboardLayoutComponent
+    // add các component của trang người dùng vào đây
+  ],
   imports: [
     CommonModule,
     FormsModule,

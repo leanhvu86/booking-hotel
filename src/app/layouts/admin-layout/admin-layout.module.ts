@@ -17,6 +17,9 @@ import {MatRippleModule} from '@angular/material/core';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSelectModule} from '@angular/material/select';
+import {HotelComponentComponent} from '../../hotel-component/hotel-component.component';
+import {BookingComponent} from '../../booking/booking.component';
+import {HotelAccessComponent} from '../../hotel-access/hotel-access.component';
 
 @NgModule({
   imports: [
@@ -40,6 +43,10 @@ import {MatSelectModule} from '@angular/material/select';
     MapsComponent,
     NotificationsComponent,
     UpgradeComponent,
+    HotelComponentComponent,
+    BookingComponent,
+    HotelAccessComponent,
+    // add các component trang admin vào đây
   ]
 })
 

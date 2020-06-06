@@ -16,6 +16,7 @@ export const DashBoardRoutes: Routes = [
         path: 'index',
         component: DashboardLayoutComponent
       },
+        // <= thêm children vào cho trang người dùng
       /*{
         path: 'addRecipe',
         component: RegisterPassengerComponent
