@@ -20,6 +20,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {HotelComponentComponent} from '../../hotel-component/hotel-component.component';
 import {BookingComponent} from '../../booking/booking.component';
 import {HotelAccessComponent} from '../../hotel-access/hotel-access.component';
+import {UserAccessComponent} from '../../user-access/user-access.component';
 
 @NgModule({
   imports: [
@@ -46,6 +47,7 @@ import {HotelAccessComponent} from '../../hotel-access/hotel-access.component';
     HotelComponentComponent,
     BookingComponent,
     HotelAccessComponent,
+    UserAccessComponent,
     // add các component trang admin vào đây
   ]
 })
