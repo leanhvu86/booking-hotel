@@ -1,47 +1,50 @@
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgModule } from '@angular/core';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
-
-
-import { AppRoutingModule } from './app.routing';
-import { ComponentsModule } from './components/components.module';
-
+import { CookieService } from 'ngx-cookie-service';
+import { SocketIoConfig, SocketIoModule } from 'ngx-socket-io';
 import { AppComponent } from './app.component';
-
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { UserProfileComponent } from './user-profile/user-profile.component';
-import { TableListComponent } from './table-list/table-list.component';
-import { TypographyComponent } from './typography/typography.component';
-import { IconsComponent } from './icons/icons.component';
-import { MapsComponent } from './maps/maps.component';
-import { NotificationsComponent } from './notifications/notifications.component';
-import { UpgradeComponent } from './upgrade/upgrade.component';
-import {
-  AgmCoreModule
-} from '@agm/core';
+import { AppRoutingModule } from './app.routing';
+import { AppSetting } from './appsetting';
+import { ComponentsModule } from './components/components.module';
+import { ErrorModule } from './error/error.module';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { DashboardLayoutModule } from './layouts/dashboard-layout/dashboard-layout.module';
+import { JwtInterceptor } from './shared/helper';
+import { SharedModule } from './shared/shared.module';
+import { HotelComponentComponent } from './hotel-component/hotel-component.component';
+
+const config: SocketIoConfig = {url: AppSetting.BASE_SERVER_URL, options: {}};
 
 @NgModule({
-  imports: [
-    BrowserAnimationsModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpModule,
-    ComponentsModule,
-    RouterModule,
-    AppRoutingModule,
-    AgmCoreModule.forRoot({
-      apiKey: 'YOUR_GOOGLE_MAPS_API_KEY'
-    })
-  ],
-  declarations: [
-    AppComponent,
-    AdminLayoutComponent,
+    imports: [
+        HttpClientModule,
+        BrowserAnimationsModule,
+        FormsModule,
+        ReactiveFormsModule,
+        HttpModule,
+        ComponentsModule,
+        RouterModule,
+        AppRoutingModule,
+        ErrorModule,
+        SharedModule,
+        SocketIoModule.forRoot(config),
+        DashboardLayoutModule
+    ],
+    declarations: [
+        AppComponent,
+        AdminLayoutComponent,
+        HotelComponentComponent,
 
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    ],
+    schemas: [
+        CUSTOM_ELEMENTS_SCHEMA
+    ],
+    providers: [CookieService, {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}],
+    bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
